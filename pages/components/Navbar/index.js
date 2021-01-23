@@ -1,7 +1,17 @@
 import React from 'react';
+import LinkComponent from '../Link';
+import { Nav,NavLink } from './styles';
 
 function Navbar() {
-  return <h1>Navbar</h1>;
+  return (
+    <Nav>
+      <LinkComponent href="/">
+        <NavLink>
+          About
+        </NavLink>  
+      </LinkComponent>
+    </Nav>
+  );
 }
 
 export default Navbar;

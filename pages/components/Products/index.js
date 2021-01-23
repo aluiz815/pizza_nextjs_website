@@ -6,7 +6,11 @@ function Products({heading}) {
   useEffect(()=>{
     async function handleProducts(){
       const response = await axios.get('http://localhost:3000/api/products')
-      setProducts(response.data)
+      if(heading === "Escolha seu Sabor Favorito"){
+        setProducts(response.data.products1)
+      }else {
+        setProducts(response.data.products2)
+      }
     }
     handleProducts();
   },[])

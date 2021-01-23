@@ -27,9 +27,15 @@ export const NavIcon = styled.div`
   right:0;
   cursor: pointer;
   color:#fff;
+  transition:0.2s ease-out;
   p {
     transform:translate(-175%,100%);
     font-weight:bold;
+  }
+  &:hover {
+    transition:0.2s ease-out;
+    cursor: pointer;
+    color:#e31837;
   }
 `;
 

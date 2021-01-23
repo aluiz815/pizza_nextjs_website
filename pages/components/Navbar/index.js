@@ -1,15 +1,19 @@
 import React from 'react';
 import LinkComponent from '../Link';
-import { Nav,NavLink } from './styles';
+import { Bars, Nav,NavIcon,NavLink } from './styles';
 
-function Navbar() {
+function Navbar({toggle}) {
   return (
     <Nav>
       <LinkComponent href="/">
         <NavLink>
-          About
+          Pizza
         </NavLink>  
       </LinkComponent>
+      <NavIcon onClick={toggle}>
+        <p>Menu</p>
+        <Bars/>
+      </NavIcon>
     </Nav>
   );
 }

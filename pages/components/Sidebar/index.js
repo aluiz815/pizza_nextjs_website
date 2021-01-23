@@ -2,11 +2,11 @@ import React from 'react';
 import LinkComponent from '../Link';
 import { SidebarContainer,Icon,CloseIcon,SidebarMenu,MenuItem,SideBtnWrapper,MenuItemRoute } from './styles';
 
-function Sidebar({isOpen,toggle}) {
+function Sidebar({isOpen,setIsOpen}) {
 
   return (
     <SidebarContainer isOpen={isOpen} >
-      <Icon onClick={toggle}>
+      <Icon onClick={()=>setIsOpen(!isOpen)}>
         <CloseIcon/>
       </Icon>
       <SidebarMenu>

@@ -3,18 +3,13 @@ import Navbar from '../Navbar';
 import Sidebar from '../Sidebar';
 import { HeroContainer,HeroContent,HeroItems,HeroH1,HeroP,HeroBtn } from './styles';
 function Hero() {
-
   const [isOpen,setIsOpen] = useState(false);
-
-  const toggle = () => {
-    setIsOpen(!isOpen)
-  }
 
   return (
     <>
       <HeroContainer>
-        <Navbar toggle={toggle}/>
-        <Sidebar isOpen={isOpen} toggle={toggle}/>
+        <Navbar isOpen={isOpen} setIsOpen={setIsOpen}/>
+        <Sidebar isOpen={isOpen} setIsOpen={setIsOpen}/>
         <HeroContent>
           <HeroItems>
             <HeroH1>Greatest Pizza Ever</HeroH1>

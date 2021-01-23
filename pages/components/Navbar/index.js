@@ -2,7 +2,7 @@ import React from 'react';
 import LinkComponent from '../Link';
 import { Bars, Nav,NavIcon,NavLink } from './styles';
 
-function Navbar({toggle}) {
+function Navbar({isOpen,setIsOpen}) {
   return (
     <Nav>
       <LinkComponent href="/">
@@ -10,7 +10,7 @@ function Navbar({toggle}) {
           Pizza
         </NavLink>  
       </LinkComponent>
-      <NavIcon onClick={toggle}>
+      <NavIcon onClick={()=>setIsOpen(!isOpen)}>
         <p>Menu</p>
         <Bars/>
       </NavIcon>

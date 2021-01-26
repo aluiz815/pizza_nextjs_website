@@ -1,4 +1,13 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
+import Cors from 'cors'
+import initMiddleware from '../../lib/init-middleware'
+const cors = initMiddleware(
+  // You can read more about the available options here: https://github.com/expressjs/cors#configuration-options
+  Cors({
+    // Only allow requests with GET, POST and OPTIONS
+    methods: ['GET', 'POST', 'OPTIONS'],
+  })
+)
 import product1 from '../../src/assets/product-1.jpg';
 import product2 from '../../src/assets/product-2.jpg';
 import product3 from '../../src/assets/product-3.jpg';
@@ -7,6 +16,7 @@ import sweet1 from '../../src/assets/sweet-1.jpg';
 import sweet2 from '../../src/assets/sweet-2.jpg';
 import sweet3 from '../../src/assets/sweet-3.jpg';
 export default  (req, res) => {
+  await cors(req, res)
   res.statusCode = 200
   const products1 = [
     {

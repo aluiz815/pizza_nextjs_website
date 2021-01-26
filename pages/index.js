@@ -8,7 +8,7 @@ export default function Home() {
       <Hero/>
       <Products heading="Escolha seu Sabor Favorito"/>
       <Feature/>
-      <Products heading="Doces Para Voce"/>
+      <Products heading="Doçes Para Você"/>
       <Footer/>
     </>
   )

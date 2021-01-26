@@ -1,4 +1,3 @@
-import React from 'react';
 import LinkComponent from '../Link';
 import { Bars, Nav,NavIcon,NavLink } from './styles';
 

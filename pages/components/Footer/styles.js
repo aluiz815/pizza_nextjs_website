@@ -46,6 +46,20 @@ export const SocialLogo = styled.a`
   font-weight:bold;
 
 `;
+
+export const DevelopedBy = styled.div`
+
+  display:flex;
+  align-items:center;
+  color:#fff;
+
+  @media screen and (max-width:768px) {
+    margin-bottom:1rem;
+  }
+
+`;
+
+
 export const SocialIcons = styled.div`
 
   display:flex;

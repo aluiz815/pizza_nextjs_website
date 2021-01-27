@@ -13,15 +13,15 @@ function Sidebar({isOpen,setIsOpen}) {
           <MenuItem>Pizzas</MenuItem>
         </LinkComponent>
         <LinkComponent href="/">
-          <MenuItem>Dessets</MenuItem>    
+          <MenuItem>Sobremesas</MenuItem>    
         </LinkComponent>
         <LinkComponent href="/">
-         <MenuItem>Full Menu</MenuItem>
+         <MenuItem>Menu Completo</MenuItem>
         </LinkComponent>
       </SidebarMenu>
       <SideBtnWrapper>
         <LinkComponent href="/">
-            <MenuItemRoute>Order Now</MenuItemRoute>
+            <MenuItemRoute>Peça Agora</MenuItemRoute>
         </LinkComponent>
       </SideBtnWrapper>
     </SidebarContainer>

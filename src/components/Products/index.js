@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import { ProductsContainer, ProductsHeading, ProductWrapper, ProductCard, ProductImage,ProductInfo, ProductTitle, ProductDesc, ProductPrice, ProductButton } from './styles';
-import api from '../../services/api';
+import axios from 'axios';
 function Products({heading}) {
   const [products,setProducts] = useState([]);
   useEffect(()=>{
     async function handleProducts(){
-      const response = await api.get('products')
+      const response = await axios.get('/api/products')
       if(heading === "Escolha seu Sabor Favorito"){
         setProducts(response.data.products1)
       }else {

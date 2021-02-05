@@ -4,6 +4,10 @@
 
 <br/>
 
+# Live Version
+
+<a href="https://pizza.andredeveloper.com.br/">Italian Pizza</a>
+
 
 # FRONTEND Technologies
 

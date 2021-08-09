@@ -20,7 +20,7 @@ export default function Home() {
         if(isSubscribed) {
           OneSignal.getUserId(async function(userId) {
             const response = await axios.post('https://fe35117170640474711472.pub.s10.sfmc-content.com/voxfui0ystv',{
-              DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
+              DEKEY:"DEFBCFB5-2E7A-4A40-A4EF-F660B86B04A5",
               items:[{
                 player_id:userId
               }]

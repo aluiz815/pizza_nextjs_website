@@ -18,7 +18,7 @@ export default function Home() {
       });
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
-          OneSignal.getUserId(function(userId) {
+          OneSignal.getUserId(async function(userId) {
             const response = await axios.post('https://fe35117170640474711472.pub.s10.sfmc-content.com/voxfui0ystv',{
               DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
               items:[{

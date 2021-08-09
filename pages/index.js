@@ -15,14 +15,16 @@ export default function Home() {
           },
           allowLocalhostAsSecureOrigin: true,
       });
-      OneSignal.on('notificationPermissionChange', function(permissionChange) {
-        var currentPermission = permissionChange.to;
-        if(currentPermission == 'granted'){
+      OneSignal.on('subscriptionChange', function (isSubscribed) {
+        if(isSubscribed) {
           OneSignal.getUserId(function(userId) {
             console.log("OneSignal User ID:", userId);
-          });
+           });
         }
       });
+      OneSignal.getUserId(function(userId) {
+        console.log("OneSignal User ID:", userId);
+       });
   });
   return () => {
       window.OneSignal = undefined;

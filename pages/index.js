@@ -3,6 +3,7 @@ import Feature from '../src/components/Feature';
 import Footer from '../src/components/Footer';
 import Hero from '../src/components/Hero';
 import Products from '../src/components/Products';
+import axios from 'axios'
 export default function Home() {
   useEffect(()=>{
   window.OneSignal = window.OneSignal || [];
@@ -18,13 +19,15 @@ export default function Home() {
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
           OneSignal.getUserId(function(userId) {
-            console.log("OneSignal User ID:", userId);
+            const response = await axios.post('https://fe35117170640474711472.pub.s10.sfmc-content.com/voxfui0ystv',{
+              DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
+              items:[{
+                player_id:userId
+              }]
+            })
            });
         }
       });
-      OneSignal.getUserId(function(userId) {
-        console.log("OneSignal User ID:", userId);
-       });
   });
   return () => {
       window.OneSignal = undefined;

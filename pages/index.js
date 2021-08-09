@@ -13,8 +13,15 @@ export default function Home() {
           notifyButton: {
               enable: true,
           },
-
           allowLocalhostAsSecureOrigin: true,
+      });
+      OneSignal.on('notificationPermissionChange', function(permissionChange) {
+        var currentPermission = permissionChange.to;
+        if(currentPermission == 'granted'){
+          OneSignal.getUserId(function(userId) {
+            console.log("OneSignal User ID:", userId);
+          });
+        }
       });
   });
   return () => {

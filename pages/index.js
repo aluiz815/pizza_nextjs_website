@@ -14,6 +14,7 @@ export default function Home() {
       notifyButton: {
         enable: true,
       },
+      allowLocalhostAsSecureOrigin: true
     });
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {

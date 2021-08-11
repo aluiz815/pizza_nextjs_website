@@ -6,7 +6,8 @@ import Products from '../src/components/Products';
 import axios from 'axios'
 export default function Home() {
   useEffect(()=>{
-  window.OneSignal = window.OneSignal || [];
+    async function startOneSignal() {
+      window.OneSignal = window.OneSignal || [];
   OneSignal.push(function () {
     OneSignal.init({
       appId: "ae1ed497-4cd1-43fb-bfbd-d7b633bbe410",
@@ -33,6 +34,8 @@ export default function Home() {
   return () => {
       window.OneSignal = undefined;
   };
+    }
+    await startOneSignal();
   },[])
   return (
     <>

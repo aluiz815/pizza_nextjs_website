@@ -8,23 +8,23 @@ export default function Home() {
   useEffect(()=>{
   window.OneSignal = window.OneSignal || [];
   OneSignal.push(function () {
-      OneSignal.init({
-        appId: "ae1ed497-4cd1-43fb-bfbd-d7b633bbe410",
-        safari_web_id: "web.onesignal.auto.4c35e1cb-920a-4e68-be7d-eea8363a1cf4",
-          notifyButton: {
-              enable: true,
-          },
-          allowLocalhostAsSecureOrigin: true,
-      });
+    OneSignal.init({
+      appId: "ae1ed497-4cd1-43fb-bfbd-d7b633bbe410",
+      safari_web_id: "web.onesignal.auto.4c35e1cb-920a-4e68-be7d-eea8363a1cf4",
+      notifyButton: {
+        enable: true,
+      },
+    });
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
           OneSignal.getUserId(async function(userId) {
-            const response = await axios.post('https://fe35117170640474711472.pub.s10.sfmc-content.com/voxfui0ystv',{
+            const response = await axios.post('https://webpush-andre.herokuapp.com/store/user',{
               DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
               items:[{
                 player_id:userId
               }]
             })
+            console.log(response)
            });
         }
       });

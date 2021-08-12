@@ -5,6 +5,8 @@ import Hero from '../src/components/Hero';
 import Products from '../src/components/Products';
 import axios from 'axios'
 export default function Home() {
+  const logged = true
+
   useEffect(()=>{
     async function startOneSignal() {
       window.OneSignal = await window.OneSignal || [];
@@ -20,13 +22,21 @@ export default function Home() {
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
           OneSignal.getUserId(async function(userId) {
-            const response = await axios.post('https://webpush-andre.herokuapp.com/store/user',{
-              DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
-              items:[{
-                player_id:userId
-              }]
-            })
-            console.log(response)
+            if(logged) {
+              await axios.put(`https://webpush-andre.herokuapp.com/update/user/${userId}`,{
+                DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
+                items:[{
+                  email:'teste@teste.com'
+                }]
+              })
+            } else {
+              await axios.post('https://webpush-andre.herokuapp.com/store/user',{
+                DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
+                items:[{
+                  player_id:userId
+                }]
+              })
+            }
            });
         }
       });

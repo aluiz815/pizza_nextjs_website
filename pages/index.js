@@ -25,9 +25,9 @@ export default function Home() {
             if(logged) {
               await axios.put(`https://webpush-andre.herokuapp.com/update/user/${userId}`,{
                 DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
-                values:[{
-                  email:'teste@teste.com'
-                }]
+                values:{
+                  email:'teste2@teste.com'
+                }
               })
             } else {
               await axios.post('https://webpush-andre.herokuapp.com/store/user',{

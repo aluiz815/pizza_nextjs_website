@@ -22,8 +22,22 @@ export default function Home() {
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
           OneSignal.getUserId(async function(userId) {
-            console.log(userId)
+            await axios.post('https://webpush-andre.herokuapp.com/store/user',{
+                DEKEY:"5F880AFC-20EB-4C0E-91FA-F91028D6D5D5",
+                items:[{
+                  player_id:userId
+                }]
+              })
            });
+
+           if(isSubscribed && logged) {
+              await axios.put(`https://webpush-andre.herokuapp.com/update/user/${userId}`,{
+                DEKEY:"5F880AFC-20EB-4C0E-91FA-F91028D6D5D5",
+                values:{
+                  email:'teste@teste.com'
+                }
+              })               
+           }
         }
       });
   });

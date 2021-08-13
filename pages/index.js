@@ -31,12 +31,14 @@ export default function Home() {
            });
 
            if(isSubscribed && logged) {
+            OneSignal.getUserId(async function(userId) {
               await axios.put(`https://webpush-andre.herokuapp.com/update/user/${userId}`,{
                 DEKEY:"5F880AFC-20EB-4C0E-91FA-F91028D6D5D5",
                 values:{
                   email:'teste@teste.com'
                 }
-              })               
+              }) 
+              });              
            }
         }
       });

@@ -5,15 +5,15 @@ import Hero from '../src/components/Hero';
 import Products from '../src/components/Products';
 import axios from 'axios'
 export default function Home() {
-  const logged = true
+  const logged = false
 
   useEffect(()=>{
     async function startOneSignal() {
       window.OneSignal = await window.OneSignal || [];
   OneSignal.push(function () {
     OneSignal.init({
-      appId: "ae1ed497-4cd1-43fb-bfbd-d7b633bbe410",
-      safari_web_id: "web.onesignal.auto.4c35e1cb-920a-4e68-be7d-eea8363a1cf4",
+      appId: "73c47d45-3a7a-49cf-8cd8-1be2a91af6d1",
+      safari_web_id: "web.onesignal.auto.56640081-e0ac-44c5-9d26-db4b2624f604",
       notifyButton: {
         enable: true,
       },
@@ -26,7 +26,7 @@ export default function Home() {
               await axios.put(`https://webpush-andre.herokuapp.com/update/user/${userId}`,{
                 DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
                 values:{
-                  email:'teste2@teste.com'
+                  email:'teste@teste.com'
                 }
               })
             } else {

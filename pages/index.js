@@ -12,7 +12,7 @@ export default function Home() {
       window.OneSignal = await window.OneSignal || [];
   OneSignal.push(function () {
     OneSignal.init({
-      appId: "73c47d45-3a7a-49cf-8cd8-1be2a91af6d1",
+      appId: "ae1ed497-4cd1-43fb-bfbd-d7b633bbe410",
       safari_web_id: "web.onesignal.auto.56640081-e0ac-44c5-9d26-db4b2624f604",
       notifyButton: {
         enable: true,
@@ -29,14 +29,15 @@ export default function Home() {
                   email:'teste@teste.com'
                 }
               })
-            } else {
+            } 
+
               await axios.post('https://webpush-andre.herokuapp.com/store/user',{
                 DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
                 items:[{
                   player_id:userId
                 }]
               })
-            }
+            
            });
         }
       });

@@ -24,7 +24,7 @@ export default function Home() {
           OneSignal.getUserId(async function(userId) {
             if(logged) {
               await axios.put(`https://webpush-andre.herokuapp.com/update/user/${userId}`,{
-                DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
+                DEKEY:"5F880AFC-20EB-4C0E-91FA-F91028D6D5D5",
                 values:{
                   email:'teste@teste.com'
                 }
@@ -32,7 +32,7 @@ export default function Home() {
             } 
 
               await axios.post('https://webpush-andre.herokuapp.com/store/user',{
-                DEKEY:"82C69E04-1E05-4466-992C-DFDC08697DF8",
+                DEKEY:"5F880AFC-20EB-4C0E-91FA-F91028D6D5D5",
                 items:[{
                   player_id:userId
                 }]

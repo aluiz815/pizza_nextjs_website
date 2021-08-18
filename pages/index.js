@@ -24,9 +24,9 @@ export default function Home() {
           OneSignal.getUserId(async function(userId) {
             await axios.post('https://webpush-andre.herokuapp.com/store/user',{
                 DEKEY:"5F880AFC-20EB-4C0E-91FA-F91028D6D5D5",
-                items:[{
+                items:JSON.stringify([{
                   player_id:userId
-                }]
+                }])
               })
            });
 

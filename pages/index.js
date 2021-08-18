@@ -22,8 +22,8 @@ export default function Home() {
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
           OneSignal.getUserId(async function(userId) {
-            await axios.post('https://webpush-ltm.herokuapp.com/store/user',{
-                DEKEY:"08C1FE3F-5364-45AB-9C7C-18643ADAB436",
+            await axios.post('https://webpush-andre.herokuapp.com/store/user',{
+                DEKEY:"5F880AFC-20EB-4C0E-91FA-F91028D6D5D5",
                 items:[{
                   player_id:userId
                 }]

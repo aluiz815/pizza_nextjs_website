@@ -8,8 +8,8 @@ export default function Home() {
   const logged = false
 
   useEffect(()=>{
-    async function startOneSignal() {
-    window.OneSignal = await window.OneSignal || [];
+    
+    window.OneSignal = window.OneSignal || [];
     OneSignal.push(function () {
     function bindEvent(element, eventName, eventHandler) {
       element.addEventListener(eventName, eventHandler, false);
@@ -22,7 +22,7 @@ export default function Home() {
     
     bindEvent(window, 'message', function (e) {
         console.log(`received message: ${e.data} from ${iframeSource}`);
-      if (event.origin !== "https://andredeveloper.com.br") {
+      if (e.origin !== "https://andredeveloper.com.br") {
         // ignore messages from anywhere except where we expect
         return
       }
@@ -36,35 +36,7 @@ export default function Home() {
           OneSignal.setSubscription(false);
         }
     });
-      OneSignal.on('subscriptionChange', function (isSubscribed) {
-        if(isSubscribed) {
-          OneSignal.getUserId(async function(userId) {
-            await axios.post('https://webpush-ltm.herokuapp.com/store/user',{
-                DEKEY:"08C1FE3F-5364-45AB-9C7C-18643ADAB436",
-                items:JSON.stringify([{
-                  player_id:userId
-                }])
-              })
-           });
-
-           if(isSubscribed && logged) {
-            OneSignal.getUserId(async function(userId) {
-              await axios.put(`https://webpush-ltm.herokuapp.com/update/user/${userId}`,{
-                DEKEY:"08C1FE3F-5364-45AB-9C7C-18643ADAB436",
-                values:{
-                  email:'teste@teste.com'
-                }
-              }) 
-              });              
-           }
-        }
-      });
   });
-  return () => {
-      window.OneSignal = undefined;
-  };
-    }
-    startOneSignal();
   },[])
   return (
     <>

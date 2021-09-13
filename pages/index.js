@@ -18,6 +18,32 @@ export default function Home() {
         enable: true,
       }
     });
+    function bindEvent(element, eventName, eventHandler) {
+      element.addEventListener(eventName, eventHandler, false);
+    }
+    var iframeSource = 'https://mainsite.com/iframe';
+    var iframe = document.createElement('iframe');
+    iframe.setAttribute('src', iframeSource);
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
+    
+    bindEvent(window, 'message', function (e) {
+        console.log(`received message: ${e.data} from ${iframeSource}`);
+      if (event.origin !== "https://andredeveloper.com.br") {
+        // ignore messages from anywhere except where we expect
+        return
+      }
+        if (e.data === false){
+            console.log("user not subscribed to mainsite, let's prompt")
+            //Option 1 - Prompt the user for this page
+            OneSignal.showNativePrompt();
+            //Option 2 - Open a window or tab to main site
+            //window.open("https://mainsite.com", "_blank", "width=400,height=400")
+        } else {
+            console.log("user is subscribed to mainsite, lets unsubscribe from subdomain.site");
+        OneSignal.setSubscription(false);
+        }
+    });
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
           OneSignal.getUserId(async function(userId) {

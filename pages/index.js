@@ -33,7 +33,7 @@ export default function Home() {
             //Option 2 - Open a window or tab to main site
             //window.open("https://mainsite.com", "_blank", "width=400,height=400")
         } else {
-            console.log("user is subscribed to mainsite, lets unsubscribe from subdomain.site");
+            console.log(e.data);
           OneSignal.setSubscription(false);
         }
     });

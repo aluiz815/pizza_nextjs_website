@@ -29,9 +29,9 @@ export default function Home() {
         if (e.data === false){
             console.log("user not subscribed to mainsite, let's prompt")
             //Option 1 - Prompt the user for this page
-            OneSignal.showNativePrompt();
+            //OneSignal.showNativePrompt();
             //Option 2 - Open a window or tab to main site
-            window.open("https://andredeveloper.com.br", "_blank", "width=400,height=400")
+            //window.open("https://andredeveloper.com.br", "_blank", "width=400,height=400")
             OneSignal.setSubscription(true);
         } else {
             console.log(e.data);

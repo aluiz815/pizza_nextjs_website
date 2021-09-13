@@ -11,13 +11,6 @@ export default function Home() {
     async function startOneSignal() {
     window.OneSignal = await window.OneSignal || [];
     OneSignal.push(function () {
-    OneSignal.init({
-      appId: "f847abb8-3282-4a84-8e14-533f3649da30",
-      safari_web_id: "web.onesignal.auto.2cd5950f-b486-4c84-8005-0f30059d0b0c",
-      notifyButton: {
-        enable: true,
-      }
-    });
     function bindEvent(element, eventName, eventHandler) {
       element.addEventListener(eventName, eventHandler, false);
     }
@@ -41,7 +34,7 @@ export default function Home() {
             //window.open("https://mainsite.com", "_blank", "width=400,height=400")
         } else {
             console.log("user is subscribed to mainsite, lets unsubscribe from subdomain.site");
-        OneSignal.setSubscription(false);
+          OneSignal.setSubscription(false);
         }
     });
       OneSignal.on('subscriptionChange', function (isSubscribed) {

@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(()=>{
     async function startOneSignal() {
     window.OneSignal = await window.OneSignal || [];
-    OneSignal.push(async function () {
+    OneSignal.push(function () {
     function bindEvent(element, eventName, eventHandler) {
       element.addEventListener(eventName, eventHandler, false);
     }
@@ -20,7 +20,7 @@ export default function Home() {
     iframe.style.display = 'none';
     document.body.appendChild(iframe);
     
-    await bindEvent(window, 'message', function (e) {
+    bindEvent(window, 'message', function (e) {
         console.log(`received message: ${e.data} from ${iframeSource}`);
       if (event.origin !== "https://andredeveloper.com.br") {
         // ignore messages from anywhere except where we expect
@@ -33,7 +33,6 @@ export default function Home() {
             //Option 2 - Open a window or tab to main site
             //window.open("https://andredeveloper.com.br", "_blank", "width=400,height=400")
         } else {
-          console.log(e.data);
           OneSignal.setSubscription(false);
         }
     });

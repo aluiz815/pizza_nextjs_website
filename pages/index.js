@@ -31,7 +31,8 @@ export default function Home() {
             //Option 1 - Prompt the user for this page
             OneSignal.showNativePrompt();
             //Option 2 - Open a window or tab to main site
-            //window.open("https://mainsite.com", "_blank", "width=400,height=400")
+            window.open("https://andredeveloper.com.br", "_blank", "width=400,height=400")
+            OneSignal.setSubscription(true);
         } else {
             console.log(e.data);
           OneSignal.setSubscription(false);

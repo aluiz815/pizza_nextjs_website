@@ -17,7 +17,7 @@ export default function Home() {
       notifyButton: {
         enable: true,
       },
-      subdomainName:"beta-10.OS.TC"
+      subdomainName:"beta-10"
     });
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {

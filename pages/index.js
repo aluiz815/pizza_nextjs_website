@@ -12,8 +12,8 @@ export default function Home() {
     window.OneSignal = await window.OneSignal || [];
     OneSignal.push(function () {
     OneSignal.init({
-      appId: "796513b9-b743-4aa8-aa38-cc4e3aaedcdd",
-      safari_web_id: "web.onesignal.auto.56640081-e0ac-44c5-9d26-db4b2624f604",
+      appId: "f847abb8-3282-4a84-8e14-533f3649da30",
+      safari_web_id: "web.onesignal.auto.2cd5950f-b486-4c84-8005-0f30059d0b0c",
       notifyButton: {
         enable: true,
       },

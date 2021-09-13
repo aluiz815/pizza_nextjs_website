@@ -10,7 +10,7 @@ export default function Home() {
   useEffect(()=>{
     async function startOneSignal() {
     window.OneSignal = await window.OneSignal || [];
-    OneSignal.push(function () {
+    OneSignal.push(async function () {
     function bindEvent(element, eventName, eventHandler) {
       element.addEventListener(eventName, eventHandler, false);
     }
@@ -20,7 +20,7 @@ export default function Home() {
     iframe.style.display = 'none';
     document.body.appendChild(iframe);
     
-    bindEvent(window, 'message', function (e) {
+    await bindEvent(window, 'message', function (e) {
         console.log(`received message: ${e.data} from ${iframeSource}`);
       if (event.origin !== "https://andredeveloper.com.br") {
         // ignore messages from anywhere except where we expect

@@ -21,7 +21,7 @@ export default function Home() {
     function bindEvent(element, eventName, eventHandler) {
       element.addEventListener(eventName, eventHandler, false);
     }
-    var iframeSource = 'ttps://andredeveloper.com.br';
+    var iframeSource = 'https://andredeveloper.com.br';
     var iframe = document.createElement('iframe');
     iframe.setAttribute('src', iframeSource);
     iframe.style.display = 'none';

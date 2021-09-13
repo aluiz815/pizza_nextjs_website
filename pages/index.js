@@ -10,14 +10,13 @@ export default function Home() {
   useEffect(()=>{
     async function startOneSignal() {
     window.OneSignal = await window.OneSignal || [];
-    OneSignal.push(async function () {
+    OneSignal.push(function () {
     OneSignal.init({
       appId: "f847abb8-3282-4a84-8e14-533f3649da30",
       safari_web_id: "web.onesignal.auto.2cd5950f-b486-4c84-8005-0f30059d0b0c",
       notifyButton: {
         enable: true,
-      },
-      subdomainName:"pizza"
+      }
     });
       OneSignal.on('subscriptionChange', function (isSubscribed) {
         if(isSubscribed) {
